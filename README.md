@@ -25,3 +25,31 @@ body = content[r.getBodyOffset():]
 # Return Data:
 self.txtInput.setText(self._helpers.buildHttpMessage(headers, body))
 ```
+
+#### Modify data of any Parameter
+```
+# Get Data:
+parameter = self._extender._helpers.getRequestParameter(content, "param_name")
+data = self._extender._helpers.urlDecode(parameter.getValue())
+
+# Your logic code
+
+# Return Data:
+self.txtInput.setText(self._helpers.buildHttpMessage(headers, body))
+```
+
+#### Modify data of any Header
+```
+if messageIsRequest:
+     request = messageInfo.getRequest()
+     headers = request.getHeaders()
+     headers = list(headers)
+           for i, header in enumerate(headers):
+                if header.startswith("Authorization: "):
+                    headers[i] = "Authorization: Basic admin:password"
+                    break
+            else:
+                headers.append("Authorization: Basic admin:password")
+messageInfo.setRequest(self._helpers.buildHttpMessage(headers, request.getRequest()[request.getBodyOffset():]))
+```
+
