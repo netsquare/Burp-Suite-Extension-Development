@@ -36,6 +36,8 @@ data = self._extender._helpers.urlDecode(parameter.getValue())
 
 # Return Data:
 self.txtInput.setText(self._helpers.buildHttpMessage(headers, body))
+# or
+return self._extender._helpers.updateParameter(self._currentMessage, self._extender._helpers.buildParameter("parameter_name", input, IParameter.PARAM_BODY))
 ```
 
 #### Modify data of any Header
