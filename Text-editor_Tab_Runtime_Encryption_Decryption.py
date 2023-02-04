@@ -22,7 +22,7 @@ from array import array
 import json
 import os 
 import sys.path as path
-from exceptions_fix import FixBurpExceptions  # To show erros prettier
+from exceptions_fix import FixBurpExceptions  # To show errors prettier
 import sys
 
 # Encryption Decryption classes imports (from Java or Python code)
@@ -44,7 +44,7 @@ class BurpExtender(IBurpExtender, IMessageEditorTabFactory):
         # register ourselves as a message editor tab factory
         callbacks.registerMessageEditorTabFactory(self)
 
-        # # To show erros prettier
+        # # To show errors prettier
         sys.stdout = callbacks.getStdout()
 
         
@@ -164,5 +164,5 @@ class EncDecTab(IMessageEditorTab):
     def getSelectedData(self):
         return self._txtInput.getSelectedText()
 
-# To show erros prettier
+# To show errors prettier
 FixBurpExceptions()
