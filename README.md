@@ -50,8 +50,8 @@ if messageIsRequest:
                 if header.startswith("Authorization: "):
                     headers[i] = "Authorization: Basic admin:password"
                     break
-            else:
-                headers.append("Authorization: Basic admin:password")
-messageInfo.setRequest(self._helpers.buildHttpMessage(headers, request.getRequest()[request.getBodyOffset():]))
+                else:
+                    headers.append("Authorization: Basic admin:password")
+     messageInfo.setRequest(self._helpers.buildHttpMessage(headers, request.getRequest()[request.getBodyOffset():]))
 ```
 
